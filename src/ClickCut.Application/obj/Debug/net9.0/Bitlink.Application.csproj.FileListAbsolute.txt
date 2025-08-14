@@ -1,0 +1,17 @@
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Application.deps.json
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Application.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Application.pdb
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Domain.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Domain.pdb
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.csproj.AssemblyReference.cache
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.AssemblyInfoInputs.cache
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.AssemblyInfo.cs
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.csproj.CoreCompileInputs.cache
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.07E6AB4C.Up2Date
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/refint/ClickCut.Application.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ClickCut.Application.pdb
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/obj/Debug/net9.0/ref/ClickCut.Application.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Shared.dll
+/home/jose-victor/projects/ClickCut./src/ClickCut.Application/bin/Debug/net9.0/ClickCut.Shared.pdb

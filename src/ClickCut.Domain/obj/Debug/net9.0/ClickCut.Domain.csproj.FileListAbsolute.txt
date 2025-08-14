@@ -1,0 +1,11 @@
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/bin/Debug/net9.0/ClickCut.Domain.deps.json
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/bin/Debug/net9.0/ClickCut.Domain.dll
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/bin/Debug/net9.0/ClickCut.Domain.pdb
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.AssemblyInfoInputs.cache
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.AssemblyInfo.cs
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.csproj.CoreCompileInputs.cache
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.dll
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/refint/ClickCut.Domain.dll
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ClickCut.Domain.pdb
+/home/jose-victor/projects/CutClick/src/ClickCut.Domain/obj/Debug/net9.0/ref/ClickCut.Domain.dll
