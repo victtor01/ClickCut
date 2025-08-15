@@ -7,6 +7,10 @@ namespace ClickCut.Infra.Adapters.Out.Persistence.DatabaseContext;
 public class AppDatabaseContext(DbContextOptions<AppDatabaseContext> options) : DbContext(options)
 {
 	public DbSet<User> Users { get; set; } = null!;
+	public DbSet<Business> Businesses { get; set; } = null!;
+	public DbSet<Booking> Bookings { get; set; } = null!;
+	public DbSet<Service> Services { get; set; } = null!;
+	public DbSet<Client> Clients { get; set; } = null!;
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{

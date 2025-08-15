@@ -26,7 +26,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers().AddCustomInvalidModelStateResponseFactory();
 builder.Services.AddServicesExtension();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -39,6 +39,7 @@ app.MapControllers();
 app.UseSerilogRequestLogging();
 
 app.UseAuthentication();
+app.UseSessionMiddleware();
 app.UseAuthorization();
 
 app.UseMiddleware<ErrorMiddleware>();

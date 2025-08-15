@@ -38,10 +38,10 @@ public class JwtService(IOptions<JwtSettings> settings) : IJwtServicePort
 		return tokenHandler.WriteToken(securityToken);
 	}
 
-	public ClaimsPrincipal? GetPrincipalFromToken(string token)
+	public ClaimsPrincipal? GetPrincipalFromToken(string token, bool validateLifetime)
 	{
 		var tokenHandler = new JwtSecurityTokenHandler();
-		var validationParameters = GetTokenValidationParameters(validateLifetime: false);
+		var validationParameters = GetTokenValidationParameters(validateLifetime: validateLifetime);
 
 		try
 		{
@@ -61,13 +61,15 @@ public class JwtService(IOptions<JwtSettings> settings) : IJwtServicePort
 		}
 	}
 
+	public ClaimsPrincipal? GetPrincipalFromToken(string token) => GetPrincipalFromToken(token, false);
+
 	private static IEnumerable<Claim> GetClaimsForUser(User user)
 	{
 		return
 		[
 			new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-			new Claim(ClaimTypes.Role, UserRole.CLIENT.ToString()), // Corrigido para usar a Role do usuário
-            new Claim(ClaimTypes.Name, user.Username),
+			new Claim(ClaimTypes.Role, UserRole.CLIENT.ToString()),
+			new Claim(ClaimTypes.Name, user.Username),
 		];
 	}
 

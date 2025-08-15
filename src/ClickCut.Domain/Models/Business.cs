@@ -1,9 +1,9 @@
+using ClickCut.Domain.Utils;
+
 namespace ClickCut.Domain.Models;
 
 public class Business
 {
-	private const int MinNameLength = 5;
-
 	private readonly List<TimeSlot> _operatingHours = [];
 	private readonly List<User> _members = [];
 	private readonly List<Booking> _bookings = [];
@@ -31,8 +31,8 @@ public class Business
 		if (owner is null)
 			throw new ArgumentNullException(nameof(owner), "O proprietário não pode ser nulo.");
 
-		if (string.IsNullOrWhiteSpace(name) || name.Length < MinNameLength)
-			throw new ArgumentException($"O nome deve ter no mínimo {MinNameLength} caracteres.", nameof(name));
+		if (string.IsNullOrWhiteSpace(name) || name.Length < ModelsConfig.User.MinUsernameLength)
+			throw new ArgumentException($"O nome deve ter no mínimo {ModelsConfig.User.MinUsernameLength} caracteres.", nameof(name));
 
 		if (password is not null && string.IsNullOrEmpty(password.ToString()))
 			throw new ArgumentException("Senha inválida!");
