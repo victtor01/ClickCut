@@ -40,6 +40,7 @@ app.UseSerilogRequestLogging();
 
 app.UseAuthentication();
 app.UseSessionMiddleware();
+app.UseBusinessMiddleware();
 app.UseAuthorization();
 
 app.UseMiddleware<ErrorMiddleware>();

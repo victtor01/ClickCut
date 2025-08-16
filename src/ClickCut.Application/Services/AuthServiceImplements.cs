@@ -7,18 +7,20 @@ using ClickCut.Application.Ports.Out;
 using ClickCut.Application.Utils;
 using ClickCut.Domain.Models;
 using ClickCut.Shared.Exceptions;
-using ClickCut.Shared.Extensions;
-using Microsoft.AspNetCore.Mvc.Diagnostics;
 
 namespace ClickCut.Application.Services;
 
 public class AuthServiceImplements(IUsersRepositoryPort usersRepositoryPort,
 	IPasswordServicePort passwordServicePort,
-	IJwtServicePort jwtServicePort) : IAuthServicePort
+	IJwtServicePort jwtServicePort,
+	IBusinessRepositoryPort businessRepositoryPort) : IAuthServicePort
 {
 	private readonly IJwtServicePort _jwtService = jwtServicePort;
 	private readonly IUsersRepositoryPort _usersRepository = usersRepositoryPort;
 	private readonly IPasswordServicePort _passwordService = passwordServicePort;
+	private readonly IBusinessRepositoryPort _businessRepository = businessRepositoryPort;
+
+	private readonly int hoursInMinutes = 6 * 60;
 
 	public async Task<AuthUserResponse> Auth(AuthUserCommand authUserCommand)
 	{
@@ -34,10 +36,27 @@ public class AuthServiceImplements(IUsersRepositoryPort usersRepositoryPort,
 
 		string token = _jwtService.Generate(user);
 
-		int hoursInMinutes = 6 * 60;
 		string refreshToken = _jwtService.Generate(user, hoursInMinutes);
 
 		return new AuthUserResponse(token, refreshToken);
+	}
+
+	public async Task<AuthBusinessResponse> BusinessAuth(Guid userId, Guid businissId)
+	{
+		User user = await _usersRepository.FindByIdAsync(userId)
+			?? throw new BadRequestException("usuário não encontrado!");
+
+		Business business = await _businessRepository.FindByIdAsync(businissId)
+			?? throw new BadRequestException("Negócio não encontrado!");
+
+		bool isOwnerOrMember = business.IsOwnerOrMember(user);
+
+		if (!isOwnerOrMember)
+			throw new BadRequestException("Loja não pertence ao usuário!");
+
+		string businessSession = _jwtService.Generate(business, hoursInMinutes);
+
+		return new AuthBusinessResponse(businessSession);
 	}
 
 	public async Task<AuthUserResponse?> RefreshSessionAsync(string refreshToken)

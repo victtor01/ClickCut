@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCut.Api", "ClickCut.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCut.Shared", "ClickCut.Shared\ClickCut.Shared.csproj", "{D52485F5-B2D4-49DE-B9A8-B9A974E7405A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickCut.Tests", "ClickCut.Tests\ClickCut.Tests.csproj", "{65DA5947-ABBD-4AB8-A7E1-270BEDB0C1AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{D52485F5-B2D4-49DE-B9A8-B9A974E7405A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D52485F5-B2D4-49DE-B9A8-B9A974E7405A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D52485F5-B2D4-49DE-B9A8-B9A974E7405A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65DA5947-ABBD-4AB8-A7E1-270BEDB0C1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65DA5947-ABBD-4AB8-A7E1-270BEDB0C1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65DA5947-ABBD-4AB8-A7E1-270BEDB0C1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65DA5947-ABBD-4AB8-A7E1-270BEDB0C1AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

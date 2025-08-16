@@ -102,8 +102,9 @@ public static class BuilderExtension
 		builder.Host.UseSerilog(logger);
 	}
 
-	public static IApplicationBuilder UseSessionMiddleware(this WebApplication builder)
-	{
-		return builder.UseMiddleware<SessionMiddleware>();
-	}
+	public static void UseSessionMiddleware(this WebApplication builder)
+		=> builder.UseMiddleware<SessionMiddleware>();
+
+	public static void UseBusinessMiddleware(this WebApplication builder)
+		=> builder.UseMiddleware<BusinessSessionMiddleware>();
 }

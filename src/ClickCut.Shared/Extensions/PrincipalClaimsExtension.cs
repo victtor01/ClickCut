@@ -6,10 +6,7 @@ namespace ClickCut.Infra.Extensions // Ou o namespace que fizer mais sentido no 
 	{
 		public static Guid GetUserId(this ClaimsPrincipal principal)
 		{
-			if (principal == null)
-			{
-				throw new ArgumentNullException(nameof(principal));
-			}
+			ArgumentNullException.ThrowIfNull(principal);
 
 			var userIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 

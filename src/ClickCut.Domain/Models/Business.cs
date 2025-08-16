@@ -77,5 +77,19 @@ public class Business
 
 		_operatingHours.Add(newSlot);
 	}
+
+	public bool IsOwnerOrMember(User user)
+	{
+		bool isOwner = Owner.Id == user.Id;
+		bool isMember = _members.Any(m => m.Id == user.Id);
+
+		return isOwner || isMember;
+	}
+
+	public void EnsureIsOwnerOrMember(User user)
+	{
+		if (!IsOwnerOrMember(user))
+			throw new UnauthorizedAccessException("O usuário não tem permissão para esta ação.");
+	}
 }
 

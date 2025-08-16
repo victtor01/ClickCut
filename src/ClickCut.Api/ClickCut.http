@@ -39,3 +39,25 @@ Content-Type: application/json
 {
 	"name": "Primeira loja"
 }
+
+###
+
+GET {{Api_HostAddress}}/business/all HTTP/1.1
+
+###
+
+POST {{Api_HostAddress}}/auth/business HTTP/1.1
+Content-Type: application/json
+
+{
+	"businessId": "0198aaf1-e872-7186-8e23-4660212a3e03"
+}
+
+###
+
+POST {{Api_HostAddress}}/auth/test HTTP/1.1
+Content-Type: application/json
+
+{
+
+}

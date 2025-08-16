@@ -34,6 +34,11 @@ public class BusinessServiceImplements(IBusinessRepositoryPort businessRepositor
 		if (businessResult.IsFailure)
 			throw new BadRequestException(businessResult.Error);
 
+		Business? businessSaved = await _businessRepository.FindByName(businessResult.Value!.Name);
+
+		if (businessSaved != null && businessSaved.IsOwnerOrMember(owner))
+			throw new BadRequestException("Já existe um negócio com esse nome");
+
 		try
 		{
 			Business business = businessResult.Value!;
@@ -49,8 +54,13 @@ public class BusinessServiceImplements(IBusinessRepositoryPort businessRepositor
 
 	}
 
-	public Task<List<Business>> FindByUserAndMembersAsync(Guid ownerId)
+	public async Task<List<Business>> FindByUserAndMembersAsync(Guid ownerId)
 	{
-		throw new NotImplementedException();
+		User user = await this._usersRepository.FindByIdAsync(ownerId)
+			?? throw new BadRequestException("Usuário não existe!");
+
+		List<Business> businesses = await this._businessRepository.FindAllByUserOrMember(user);
+
+		return businesses;
 	}
 }

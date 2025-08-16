@@ -18,7 +18,7 @@ public class BusinessController(IBusinessServicePort businessServicePort) : Cont
 	private readonly IBusinessServicePort _businessServicePort = businessServicePort;
 
 	[HttpPost]
-	public async Task<IActionResult> Create([FromBody] CreateBusinessRequest createBusinessRequest)
+	public async Task<ActionResult<BusinessResponse>> Create([FromBody] CreateBusinessRequest createBusinessRequest)
 	{
 		Guid userId = HttpContext.User.GetUserId();
 
@@ -29,6 +29,16 @@ public class BusinessController(IBusinessServicePort businessServicePort) : Cont
 		));
 
 		return CreatedAtAction(nameof(FindById), new { businessId = business.Id }, business.ToResponse());
+	}
+
+	[HttpGet("all")]
+	public async Task<ActionResult<List<BusinessResponse>>> FindAll()
+	{
+		Guid userId = HttpContext.User.GetUserId();
+
+		List<Business> businesses = await _businessServicePort.FindByUserAndMembersAsync(userId);
+
+		return Ok(businesses.Select(u => u.ToResponse()).ToList());
 	}
 
 	[HttpGet("{businessId}")]
